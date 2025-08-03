@@ -1,4 +1,4 @@
-package dev.ramadhani.konfi.config;
+package dev.ramadhani.konfi.auth;
 
 
 import lombok.Data;
@@ -9,19 +9,17 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.Instant;
-import java.util.Map;
 
 @Document
-@NoArgsConstructor
 @Data
-public class Config {
+@NoArgsConstructor
+public class Organization {
     @Id
     private String id;
     private String name;
-    private ConfigSourceType configSourceType;
+    private String description;
     @CreatedDate
     private Instant createdAt;
     @LastModifiedDate
     private Instant updatedAt;
-    private Map<String, Object> config;
 }

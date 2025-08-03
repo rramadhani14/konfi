@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/config")
+@RequestMapping("api/v1/config")
 @AllArgsConstructor
 public class ConfigController {
     private ConfigService configService;
