@@ -1,8 +1,7 @@
-package dev.ramadhani.konfi.config;
+package dev.ramadhani.konfi.publicapi.config;
 
 
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -1,8 +1,7 @@
-package dev.ramadhani.konfi.config;
+package dev.ramadhani.konfi.publicapi.config;
 
 
 import lombok.AllArgsConstructor;
-import org.mapstruct.factory.Mappers;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("api/v1/config")
+@RequestMapping("api/public/v1/config")
 @AllArgsConstructor
 public class ConfigController {
     private ConfigService configService;

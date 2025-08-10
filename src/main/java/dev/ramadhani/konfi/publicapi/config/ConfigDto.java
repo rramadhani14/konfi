@@ -1,4 +1,4 @@
-package dev.ramadhani.konfi.config;
+package dev.ramadhani.konfi.publicapi.config;
 
 
 import lombok.Data;
