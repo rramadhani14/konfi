@@ -3,6 +3,7 @@ package dev.ramadhani.konfi.auth;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.CompoundIndex;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
@@ -10,6 +11,11 @@ import java.util.List;
 @Document
 @Data
 @NoArgsConstructor
+@CompoundIndex(
+        name="username_org_index",
+        unique = true,
+        def = "{'username': 1, 'organizationId': 1}"
+)
 public class User {
     @Id
     private String id;

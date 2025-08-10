@@ -7,6 +7,6 @@ import java.util.List;
 
 
 @Repository
-interface UserRepository extends MongoRepository<User, String> {
+public interface UserRepository extends MongoRepository<User, String> {
     List<User> findUsersByEmail(String email);
 }
