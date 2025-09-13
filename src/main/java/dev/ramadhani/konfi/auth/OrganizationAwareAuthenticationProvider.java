@@ -2,9 +2,10 @@ package dev.ramadhani.konfi.auth;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationProvider;
-import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -19,10 +20,10 @@ public class OrganizationAwareAuthenticationProvider implements AuthenticationPr
         OrganizationAwareUsernamePasswordAuthenticationToken token = (OrganizationAwareUsernamePasswordAuthenticationToken) authentication;
         Optional<User> user = userService.findUserByUsernameAndOrganizationName(token.getName(), token.getOrganizationId());
         if(user.isEmpty()) {
-            throw new BadCredentialsException("Username or Organization Not Found");
+            throw new UsernameNotFoundException("User not found");
         }
-        token.setAuthenticated(true);
-        return token;
+        User userDetails = user.get();
+        return new OrganizationAwareUsernamePasswordAuthenticationToken(userDetails.getUsername(), userDetails.getPassword(), userDetails.getOrganizationId(), userDetails.getRole().stream().map(it -> new SimpleGrantedAuthority(it.name())).toList());
     }
 
     @Override

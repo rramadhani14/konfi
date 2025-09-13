@@ -27,6 +27,7 @@ public class UserService {
             organization.setId("admin");
             organizationRepository.save(organization);
             User user = new User();
+            user.setUsername("admin");
             user.setEmail("admin@test.com");
             user.setPassword("pleasechangeme");
             user.setRole(List.of(Role.GLOBAL_ADMIN));

@@ -1,8 +1,6 @@
 spring:
   application:
     name: konfi
-  datasource:
-    datas
   data:
     mongodb:
       host: localhost
@@ -12,3 +10,13 @@ spring:
       password: password
       authentication-database: admin
       auto-index-creation: true
+logging:
+  level:
+    root: debug
+
+konfi:
+  auth:
+    jwt:
+      secret: ${KONFI_AUTH_JWT_SECRET:pleasechangemeassoonaspossible}
+      algorithm: ${KONFI_AUTH_JWT_ALGORITHM:RSA256}
+      access-token-validity-duration: 24h

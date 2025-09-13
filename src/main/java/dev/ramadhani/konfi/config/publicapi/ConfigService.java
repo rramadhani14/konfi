@@ -1,4 +1,4 @@
-package dev.ramadhani.konfi.publicapi.config;
+package dev.ramadhani.konfi.config.publicapi;
 
 
 import lombok.AllArgsConstructor;
